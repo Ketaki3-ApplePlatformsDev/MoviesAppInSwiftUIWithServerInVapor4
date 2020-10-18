@@ -2,24 +2,26 @@
 //  File.swift
 //  
 //
-//  Created by Ketaki Mahaveer Kurade on 17/10/20.
+//  Created by Ketaki Mahaveer Kurade on 18/10/20.
 //
 
 import Foundation
+import Vapor
 import Fluent
 import FluentPostgresDriver
 
-struct CreateMovie: Migration {
-    
+struct CreateReview: Migration {
     func prepare(on database: Database) -> EventLoopFuture<Void> {
-        database.schema("movies") // Table name
+        database.schema("reviews") // Table name
             .id()
             .field("title", .string) // Column name
+            .field("body", .string)
+            .field("movie_id", .uuid, .references("movies", "id"))
             .create()
     }
     
     func revert(on database: Database) -> EventLoopFuture<Void> {
-        database.schema("movies")
+        database.schema("reviews")
             .delete() // Drop table
     }
 }

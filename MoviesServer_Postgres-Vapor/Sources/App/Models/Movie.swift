@@ -18,6 +18,10 @@ final class Movie: Model, Content {
     @Field(key: "title")
     var title: String
     
+    // Belongs to - Review belongs to a particular movie
+    @Children(for: \.$movie)
+    var reviews: [Review]
+    
     init() {
     }
     

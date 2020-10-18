@@ -5,7 +5,7 @@ func routes(_ app: Application) throws {
     
     // /movies
     app.get("movies") { request in
-        Movie.query(on: request.db).all()
+        Movie.query(on: request.db).with(\.$reviews).all()
     }
     
     // /movies/id
@@ -40,5 +40,11 @@ func routes(_ app: Application) throws {
     app.post("movies") { request -> EventLoopFuture<Movie> in
         let movie = try request.content.decode(Movie.self) // Content = body of http request
          return movie.create(on: request.db).map { movie }
+    }
+    
+    // /reviews POST
+    app.post("reviews") { request -> EventLoopFuture<Review> in
+        let review = try request.content.decode(Review.self) // Content = body of http request
+        return review.create(on: request.db).map { review }
     }
 }
