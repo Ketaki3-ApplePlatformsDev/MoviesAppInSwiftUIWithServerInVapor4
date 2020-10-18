@@ -23,7 +23,7 @@ final class Review: Model, Content {
     var body: String
     
     // hasMany - Movie has many reviews
-    @Parent(key: "movie_id") // Fooreign key
+    @Parent(key: "movie_id") // Foreign key
     var movie: Movie
     
     init() {

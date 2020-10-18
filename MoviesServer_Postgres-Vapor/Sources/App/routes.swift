@@ -2,10 +2,37 @@ import Fluent
 import Vapor
 
 func routes(_ app: Application) throws {
+    // /movie/:movieId/actor/:actorId
+    app.post("movie", ":movieId", "actor", ":actorId") { request -> EventLoopFuture<HTTPStatus> in
+        // get the movie
+        let movie = Movie.find(request.parameters.get("movieId"), on: request.db)
+            .unwrap(or: Abort(.notFound))
+        
+        // get the actor
+        let actor = Actor.find(request.parameters.get("actorId"), on: request.db)
+            .unwrap(or: Abort(.notFound))
+        
+        return movie.and(actor).flatMap { (movie, actor) in
+            movie.$actors.attach(actor, on: request.db)
+        }.transform(to: .ok)
+    }
+    
+    
+    // /actors GET
+    app.get("actors") { request in
+        Actor.query(on: request.db).with(\.$movies).all()
+    }
+    
+    // /actors POST
+    app.post("actors") { request -> EventLoopFuture<Actor> in
+        let actor = try request.content.decode(Actor.self) // Content = body of http request
+        return actor.create(on: request.db).map { actor }
+    }
+    
     
     // /movies
     app.get("movies") { request in
-        Movie.query(on: request.db).with(\.$reviews).all()
+        Movie.query(on: request.db).with(\.$reviews).with(\.$actors).all()
     }
     
     // /movies/id

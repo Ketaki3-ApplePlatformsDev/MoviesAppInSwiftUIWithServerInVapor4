@@ -22,6 +22,10 @@ final class Movie: Model, Content {
     @Children(for: \.$movie)
     var reviews: [Review]
     
+    // Belongs to - Actors belongs to movies
+    @Siblings(through: MovieActor.self, from: \.$movie, to: \.$actor)
+    var actors: [Actor]
+    
     init() {
     }
     
