@@ -18,6 +18,9 @@ final class Movie: Model, Content {
     @Field(key: "title")
     var title: String
     
+    @Field(key: "poster")
+    var poster: String
+    
     // Belongs to - Review belongs to a particular movie
     @Children(for: \.$movie)
     var reviews: [Review]
@@ -29,8 +32,9 @@ final class Movie: Model, Content {
     init() {
     }
     
-    init(id: UUID? = nil, title: String) {
+    init(id: UUID? = nil, title: String, poster: String) {
         self.id = id
         self.title = title
+        self.poster = poster
     }
 }

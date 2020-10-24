@@ -2,6 +2,15 @@ import Fluent
 import Vapor
 
 func routes(_ app: Application) throws {
+    let moviesContrller = MoviesController()
+    
+    // localhost:8080/movies POST
+    app.post("movies", use: moviesContrller.create)
+    
+    // localhost:8080/movies GET
+    app.get("movies", use: moviesContrller.all)
+     
+    /*
     // /movie/:movieId/actor/:actorId
     app.post("movie", ":movieId", "actor", ":actorId") { request -> EventLoopFuture<HTTPStatus> in
         // get the movie
@@ -74,4 +83,5 @@ func routes(_ app: Application) throws {
         let review = try request.content.decode(Review.self) // Content = body of http request
         return review.create(on: request.db).map { review }
     }
+ */
 }
