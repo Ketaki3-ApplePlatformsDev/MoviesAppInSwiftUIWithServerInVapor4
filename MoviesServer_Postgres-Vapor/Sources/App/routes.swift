@@ -3,13 +3,22 @@ import Vapor
 
 func routes(_ app: Application) throws {
     let moviesContrller = MoviesController()
+    let reviewsController = ReviewsController()
     
     // localhost:8080/movies POST
     app.post("movies", use: moviesContrller.create)
     
     // localhost:8080/movies GET
     app.get("movies", use: moviesContrller.all)
+    
+    // localhost:8080/movies/:movieId DELETE
+    app.delete("movies", ":movieId", use: moviesContrller.delete)
      
+    // localhost:8080/reviews POST
+    app.post("reviews", use: reviewsController.create)
+    
+    // localhost:8080/movies/:movieId/reviews GET
+    app.get("movies", ":movieId", "reviews", use: reviewsController.getByMovieID)
     /*
     // /movie/:movieId/actor/:actorId
     app.post("movie", ":movieId", "actor", ":actorId") { request -> EventLoopFuture<HTTPStatus> in

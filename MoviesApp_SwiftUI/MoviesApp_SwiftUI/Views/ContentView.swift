@@ -13,29 +13,32 @@ struct ContentView: View {
     @Environment(\.presentationMode) var presentationMode
     let screenSize = UIScreen.main.bounds
     @ObservedObject var httpMovieClient = HTTPMovieClient()
-
+    
     var body: some View {
         
         NavigationView {
             List(self.httpMovieClient.movies, id: \.id) { movie in
                 
-                VStack {
-                    Image(movie.poster)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                    Text(movie.title)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .foregroundColor(Color.white)
-                        .background(Color.blue)
-                        .font(.system(size: 25))
-                        .cornerRadius(10)
+                NavigationLink(destination: MovieDetailsView(movie: movie)) {
+                    
+                    VStack {
+                        Image(movie.poster)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        Text(movie.title)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .foregroundColor(Color.white)
+                            .background(Color.blue)
+                            .font(.system(size: 25))
+                            .cornerRadius(10)
+                    }
+                    
                 }
                 
             }
-                
-                
-        .navigationBarTitle("Movies")
+            
+            .navigationBarTitle("Movies")
             .navigationBarItems(trailing: Button(action: {
                 self.isPresented = true
             }){

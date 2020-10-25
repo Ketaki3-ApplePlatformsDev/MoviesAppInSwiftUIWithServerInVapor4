@@ -17,6 +17,9 @@
 		4B1DC7E92544595B009FBC38 /* AddMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1DC7E82544595B009FBC38 /* AddMovieView.swift */; };
 		4B1DC7ED254462B8009FBC38 /* HTTPMovieClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1DC7EC254462B8009FBC38 /* HTTPMovieClient.swift */; };
 		4B1DC7F22544631A009FBC38 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1DC7F12544631A009FBC38 /* Movie.swift */; };
+		4B4BC1F125454C8900B90534 /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4BC1F025454C8900B90534 /* MovieDetailsView.swift */; };
+		4B4BC1F42545581C00B90534 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4BC1F32545581C00B90534 /* Review.swift */; };
+		4B4BC1F725455AF000B90534 /* HTTPReviewClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4BC1F625455AF000B90534 /* HTTPReviewClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		4B1DC7E82544595B009FBC38 /* AddMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMovieView.swift; sourceTree = "<group>"; };
 		4B1DC7EC254462B8009FBC38 /* HTTPMovieClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMovieClient.swift; sourceTree = "<group>"; };
 		4B1DC7F12544631A009FBC38 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		4B4BC1F025454C8900B90534 /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
+		4B4BC1F32545581C00B90534 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		4B4BC1F625455AF000B90534 /* HTTPReviewClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPReviewClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 			children = (
 				4B1DC7D02544588E009FBC38 /* ContentView.swift */,
 				4B1DC7E82544595B009FBC38 /* AddMovieView.swift */,
+				4B4BC1F025454C8900B90534 /* MovieDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -107,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				4B1DC7EC254462B8009FBC38 /* HTTPMovieClient.swift */,
+				4B4BC1F625455AF000B90534 /* HTTPReviewClient.swift */,
 			);
 			path = "HTTP Clients";
 			sourceTree = "<group>";
@@ -115,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				4B1DC7F12544631A009FBC38 /* Movie.swift */,
+				4B4BC1F32545581C00B90534 /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +200,9 @@
 			files = (
 				4B1DC7F22544631A009FBC38 /* Movie.swift in Sources */,
 				4B1DC7CD2544588E009FBC38 /* AppDelegate.swift in Sources */,
+				4B4BC1F725455AF000B90534 /* HTTPReviewClient.swift in Sources */,
+				4B4BC1F42545581C00B90534 /* Review.swift in Sources */,
+				4B4BC1F125454C8900B90534 /* MovieDetailsView.swift in Sources */,
 				4B1DC7ED254462B8009FBC38 /* HTTPMovieClient.swift in Sources */,
 				4B1DC7CF2544588E009FBC38 /* SceneDelegate.swift in Sources */,
 				4B1DC7E3254458F5009FBC38 /* View+Extensions.swift in Sources */,
